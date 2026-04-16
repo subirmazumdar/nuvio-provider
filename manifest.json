@@ -6,7 +6,7 @@
     "version": "1.0.0",
     "author": "Subir",
     "supportedTypes": ["movie", "series"],
-    "url": "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/providers/banglaplex.js"
+    "url": "https://raw.githubusercontent.com/subirmazumdar/nuvio-provider/main/providers/banglaplex.js"
   },
   {
     "id": "cinedoze",
@@ -15,6 +15,6 @@
     "version": "1.0.0",
     "author": "Subir",
     "supportedTypes": ["movie", "series"],
-    "url": "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/providers/cinedoze.js"
+    "url": "https://raw.githubusercontent.com/subirmazumdar/nuvio-provider/main/providers/cinedoze.js"
   }
 ]
