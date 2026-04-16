@@ -1,0 +1,20 @@
+[
+  {
+    "id": "banglaplex",
+    "name": "BanglaPlex",
+    "description": "BanglaPlex streams",
+    "version": "1.0.0",
+    "author": "Subir",
+    "supportedTypes": ["movie", "series"],
+    "url": "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/providers/banglaplex.js"
+  },
+  {
+    "id": "cinedoze",
+    "name": "Cinedoze",
+    "description": "Cinedoze streams with multiple qualities",
+    "version": "1.0.0",
+    "author": "Subir",
+    "supportedTypes": ["movie", "series"],
+    "url": "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/providers/cinedoze.js"
+  }
+]
