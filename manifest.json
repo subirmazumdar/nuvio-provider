@@ -3,12 +3,15 @@
   "name": "Subir Providers",
   "author": "Subir",
   "version": "1.0.0",
+  "type": "repository",
   "providers": [
     {
+      "id": "banglaplex",
       "name": "BanglaPlex",
       "file": "providers/banglaplex.js"
     },
     {
+      "id": "cinedoze",
       "name": "Cinedoze",
       "file": "providers/cinedoze.js"
     }
