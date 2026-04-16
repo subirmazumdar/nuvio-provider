@@ -8,4 +8,4 @@ Providers:
 
 Paste this link in Nuvio:
 
-https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/manifest.json
+https://raw.githubusercontent.com/subirmazumdar/nuvio-provider/main/manifest.json
