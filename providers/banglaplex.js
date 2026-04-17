@@ -1,70 +1,47 @@
-function getStreams(tmdbId, mediaType) {
+function getStreams() {
   return new Promise((resolve) => {
 
     let streams = [];
 
-    let tmdbUrl = "https://api.themoviedb.org/3/" +
-      (mediaType === "movie" ? "movie/" : "tv/") + tmdbId;
-
-    fetch(tmdbUrl)
-      .then(res => res.json())
-      .then(data => {
-
-        let title = data.title || data.name;
-
-        return fetch("https://banglaplex.click/?s=" + encodeURIComponent(title));
-      })
+    fetch("https://banglaplex.click/")
       .then(res => res.text())
       .then(html => {
 
-        let postMatch = html.match(/href="(https:\/\/banglaplex\.click\/[^"]+)"/);
-
-        if (!postMatch) return resolve([]);
-
-        return fetch(postMatch[1]);
-      })
-      .then(res => res ? res.text() : null)
-      .then(html => {
-
         if (!html) return resolve([]);
 
-        let pasteMatch = html.match(/https:\/\/pasteurl\.net\/view\/[^\s"]+/);
+        let match = html.match(/https:\/\/pasteurl\.net\/view\/[^\s"]+/);
 
-        if (!pasteMatch) return resolve([]);
+        if (!match) return resolve([]);
 
-        return fetch(pasteMatch[0]);
+        return fetch(match[0]);
       })
       .then(res => res ? res.text() : null)
-      .then(html => {
+      .then(page => {
 
-        if (!html) return resolve([]);
+        if (!page) return resolve([]);
 
-        let links = html.match(/https?:\/\/[^\s"<]+/g) || [];
+        let links = page.match(/https?:\/\/[^\s"<]+/g) || [];
 
         links.forEach(link => {
 
           if (
             link.includes("streamtape") ||
-            link.includes("xcloud") ||
             link.includes("gdflix") ||
             link.includes("filepress")
           ) {
+
+            let source = "BanglaPlex";
+
             streams.push({
-              name: "BanglaPlex",
-              title: link.split('/')[2],
+              name: source,
+              title: source + " - HD",
               url: link,
-              quality: "Auto",
-              provider: "banglaplex",
-              headers: {
-                "Referer": "https://banglaplex.click/",
-                "User-Agent": "Mozilla/5.0"
-              }
+              quality: "HD"
             });
           }
-
         });
 
-        resolve(streams);
+        resolve(streams.slice(0, 10));
       })
       .catch(() => resolve([]));
 
